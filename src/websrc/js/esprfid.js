@@ -12,10 +12,10 @@ var config = {
     "command": "configfile",
     "network": {
         "bssid": "",
-        "ssid": "esp-rfid",
+        "ssid": "11yue-rfid",
         "wmode": 1,
         "hide": 0,
-        "pswd": "",
+        "pswd": "11yuetikong",
         "offtime": 0,
         "dhcp": 1,
         "ip": "",
@@ -27,8 +27,8 @@ var config = {
     },
     "hardware": {
         "readerType": 1,
-        "wgd0pin": 4,
-        "wgd1pin": 5,
+        "wgd0pin": 13,
+        "wgd1pin": 12,
         "sspin": 0,
         "rfidgain": 32,
         "wifipin": 255,
@@ -36,12 +36,12 @@ var config = {
         "ltype": 0,
         "rpin": 4,
         "rtime": 400,
-        "buttonpin": 255
+        "buttonpin": 12
     },
     "general": {
         "hostnm": "esp-rfid",
         "restart": 0,
-        "pswd": "admin"
+        "pswd": "11yue@tikong"
     },
     "mqtt": {
         "enabled": 0,
@@ -52,7 +52,7 @@ var config = {
         "pswd": ""
     },
     "ntp": {
-        "server": "pool.ntp.org",
+        "server": "ntp.ntsc.ac.cn",
         "interval": 30,
         "timezone": 0
     }
@@ -132,8 +132,8 @@ function listhardware() {
     document.getElementById("buttonPin").value = config.hardware.buttonpin;
     if (isOfficialBoard) {
 		document.getElementById("readerType").value = 1;
-		document.getElementById("wg0pin").value = 5;
-		document.getElementById("wg1pin").value = 4;
+		document.getElementById("wg0pin").value = 13;
+		document.getElementById("wg1pin").value = 12;
 		document.getElementById("gpiorly").value = 13;
 		document.getElementById("wg0pin").disabled = true;
 		document.getElementById("wg1pin").disabled = true;
@@ -238,7 +238,7 @@ function checkOctects(input) {
     if (call.value.match(ipformat)) {
         return true;
     } else {
-        alert("You have entered an invalid address on " + input);
+        alert("您在上输入的地址无效 " + input);
         call.focus();
         return false;
     }
